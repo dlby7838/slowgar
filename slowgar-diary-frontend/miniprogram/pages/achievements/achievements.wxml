@@ -1,0 +1,49 @@
+<view class="container">
+  <view class="stats-section">
+    <view class="stat-item">
+      <text class="stat-value">{{stats.totalDays}}</text>
+      <text class="stat-label">记录天数</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-value">{{stats.totalRecords}}</text>
+      <text class="stat-label">总记录数</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-value">{{stats.currentStreak}}</text>
+      <text class="stat-label">连续天数</text>
+    </view>
+  </view>
+
+  <view class="achievements-grid">
+    <view class="achievement-item {{item.unlocked ? 'unlocked' : ''}}" 
+          wx:for="{{achievements}}" 
+          wx:key="id">
+      <image class="achievement-icon" src="{{item.icon}}" mode="aspectFit"></image>
+      <view class="achievement-info">
+        <text class="achievement-name">{{item.name}}</text>
+        <text class="achievement-desc">{{item.description}}</text>
+      </view>
+    </view>
+  </view>
+
+  <button class="share-btn" type="primary" bindtap="shareToMoments">
+    分享到朋友圈
+  </button>
+</view>
+
+<view class="achievements-container">
+  <!-- 未登录提示 -->
+  <view wx:if="{{!isLoggedIn}}" class="login-tip">
+    <text>登录后查看您的成就</text>
+    <button 
+      class="login-btn" 
+      type="primary" 
+      bindtap="goToLogin"
+    >去登录</button>
+  </view>
+
+  <!-- 成就列表 -->
+  <view wx:else>
+    <!-- ... existing content ... -->
+  </view>
+</view> 

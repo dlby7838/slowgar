@@ -1,0 +1,42 @@
+<view class="records-container">
+  <!-- 未登录提示 -->
+  <view wx:if="{{!isLoggedIn}}" class="login-tip">
+    <text>登录后开始记录饮食和血糖</text>
+    <button 
+      class="login-btn" 
+      type="primary" 
+      bindtap="onAddRecord"
+    >去登录</button>
+  </view>
+
+  <!-- 记录列表 -->
+  <view wx:else>
+    <view class="records-list">
+      <block wx:if="{{records.length > 0}}">
+        <view class="record-item" wx:for="{{records}}" wx:key="id">
+          <view class="record-content">
+            <image 
+              class="food-image" 
+              src="{{item.imageUrl}}" 
+              mode="aspectFill"
+            />
+            <view class="record-info">
+              <view class="analysis-item">热量: {{item.analysis.calories}}卡路里</view>
+              <view class="analysis-item">菜系: {{item.analysis.cuisine}}</view>
+              <view class="analysis-item">碳水: {{item.analysis.carbs}}g</view>
+              <view class="record-time">{{item.createTime}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <view wx:else class="empty-state">
+        <text>还没有任何记录，开始记录今天的血糖和饮食吧！</text>
+      </view>
+    </view>
+
+    <!-- 添加记录按钮 -->
+    <view class="add-button" bindtap="onAddRecord">
+      <text class="add-icon">+</text>
+    </view>
+  </view>
+</view> 

@@ -1,0 +1,21 @@
+<view class="auth-container">
+  <view class="content">
+    <image class="unlock-icon" src="/images/unlock.png" mode="aspectFit"/>
+    <text class="title">登录后解锁所有功能</text>
+  </view>
+
+  <view class="footer">
+    <view class="agreement">
+      <checkbox value="{{agreed}}" bindtap="toggleAgreement" color="#07c160"/>
+      <text>我已阅读并同意</text>
+      <text class="link" bindtap="showAgreement">用户协议</text>
+    </view>
+    
+    <button 
+      class="login-btn {{agreed ? '' : 'disabled'}}" 
+      type="primary" 
+      bindtap="handleLogin"
+      disabled="{{!agreed}}"
+    >立即登录</button>
+  </view>
+</view> 

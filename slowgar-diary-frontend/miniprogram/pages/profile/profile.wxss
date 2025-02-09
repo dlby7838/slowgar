@@ -1,0 +1,74 @@
+.profile-container {
+  min-height: calc(100vh - 100rpx);
+  background: #f5f5f5;
+}
+
+.login-tip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60rpx 40rpx;
+  color: #999;
+  font-size: 28rpx;
+}
+
+.login-btn {
+  margin-top: 40rpx;
+  width: 200rpx !important;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  border-radius: 40rpx;
+}
+
+.profile-content {
+  padding: 20rpx;
+}
+
+.user-info {
+  background: #fff;
+  padding: 40rpx;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  margin-right: 20rpx;
+}
+
+.nickname {
+  font-size: 32rpx;
+  color: #333;
+}
+
+.menu-list {
+  background: #fff;
+  border-radius: 16rpx;
+}
+
+.menu-item {
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+  color: #333;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.arrow {
+  color: #999;
+}
+
+.logout {
+  color: #ff4d4f;
+} 
