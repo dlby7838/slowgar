@@ -1,33 +1,33 @@
 <view class="profile-container">
-  <!-- 未登录状态 -->
-  <view wx:if="{{!isLoggedIn}}" class="login-tip">
-    <text>登录后查看个人信息</text>
-    <button 
-      class="login-btn" 
-      type="primary" 
-      bindtap="goToLogin"
-    >去登录</button>
-  </view>
-
-  <!-- 已登录状态 -->
-  <view wx:else class="profile-content">
-    <view class="user-info">
+  <!-- 用户信息区域 -->
+  <view class="user-info-section">
+    <view class="avatar-name" bindtap="{{!isLoggedIn ? 'goToLogin' : ''}}">
       <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"/>
-      <text class="nickname">{{userInfo.nickName}}</text>
+      <text class="nickname">{{isLoggedIn ? userInfo.nickName : '未登录'}}</text>
+      <text class="arrow">></text>
     </view>
 
-    <view class="menu-list">
-      <view class="menu-item">
-        <text>设置</text>
-        <text class="arrow">></text>
+    <!-- 数据展示区域 -->
+    <view class="data-row">
+      <view class="data-item">
+        <text class="data-value">{{isLoggedIn ? '57.4' : '--'}}</text>
+        <text class="data-label">当前(公斤)</text>
       </view>
-      <view class="menu-item">
-        <text>关于我们</text>
-        <text class="arrow">></text>
+      <view class="data-item">
+        <text class="data-value">{{isLoggedIn ? '保持' : '--'}}</text>
+        <text class="data-label">目标(公斤)</text>
       </view>
-      <view class="menu-item" bindtap="handleLogout">
-        <text class="logout">退出登录</text>
+      <view class="data-item">
+        <text class="data-value">{{isLoggedIn ? '22.4' : '--'}}</text>
+        <text class="data-label">BMI</text>
       </view>
+    </view>
+  </view>
+
+  <!-- 退出登录按钮单独放在外面 -->
+  <view class="logout-container" wx:if="{{isLoggedIn}}">
+    <view class="menu-item logout-item" bindtap="handleLogout">
+      <text class="logout">退出登录</text>
     </view>
   </view>
 </view> 

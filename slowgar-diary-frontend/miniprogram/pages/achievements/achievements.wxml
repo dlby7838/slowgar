@@ -44,6 +44,13 @@
 
   <!-- 成就列表 -->
   <view wx:else>
-    <!-- ... existing content ... -->
+    <view class="achievements-list">
+      <block wx:if="{{achievements.length > 0}}">
+        <!-- 成就列表内容 -->
+      </block>
+      <view wx:else class="empty-state">
+        <text>暂无成就，继续加油！</text>
+      </view>
+    </view>
   </view>
 </view> 

@@ -16,6 +16,7 @@
       type="primary" 
       bindtap="handleLogin"
       disabled="{{!agreed}}"
+      loading="{{loading}}"
     >立即登录</button>
   </view>
 </view> 

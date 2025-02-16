@@ -1,3 +1,10 @@
+interface IAppOption {
+  globalData: {
+    userInfo: WechatMiniprogram.UserInfo | null
+    isLoggedIn: boolean
+  }
+}
+
 interface FoodRecord {
   id: number
   type: string
@@ -13,23 +20,48 @@ interface FoodRecord {
 Component({
   data: {
     isLoggedIn: false,
-    records: [] as FoodRecord[]
+    records: [] as FoodRecord[],
+    userInfo: null as WechatMiniprogram.UserInfo | null,
   },
 
   lifetimes: {
     attached() {
-      const app = getApp()
-      this.setData({
-        isLoggedIn: app.globalData.isLoggedIn
-      })
-      
-      if (app.globalData.isLoggedIn) {
-        this.loadRecords()
-      }
+      this.checkLoginStatus();
+    }
+  },
+
+  pageLifetimes: {
+    show() {
+      this.checkLoginStatus();
     }
   },
 
   methods: {
+    checkLoginStatus() {
+      const app = getApp<IAppOption>();
+      this.setData({
+        isLoggedIn: app.globalData.isLoggedIn,
+        userInfo: app.globalData.userInfo
+      });
+
+      if (app.globalData.isLoggedIn) {
+        this.loadRecords();
+      }
+    },
+
+    onAddRecord() {
+      if (!this.data.isLoggedIn) {
+        wx.navigateTo({
+          url: '/pages/auth/auth'
+        });
+        return;
+      }
+
+      wx.navigateTo({
+        url: '/pages/records/text-record/text-record'
+      });
+    },
+
     loadRecords() {
       // TODO: 从后端加载记录
       this.setData({
@@ -46,32 +78,7 @@ Component({
             createTime: new Date().toISOString()
           }
         ]
-      })
-    },
-
-    onAddRecord() {
-      if (!this.data.isLoggedIn) {
-        wx.navigateTo({
-          url: '/pages/auth/auth'
-        })
-        return
-      }
-      wx.showActionSheet({
-        itemList: ['拍照记录', '文字记录', '语音记录'],
-        success: (res) => {
-          switch(res.tapIndex) {
-            case 0:
-              this.handlePhotoRecord()
-              break
-            case 1:
-              this.handleTextRecord()
-              break
-            case 2:
-              this.handleVoiceRecord()
-              break
-          }
-        }
-      })
+      });
     },
 
     handlePhotoRecord() {

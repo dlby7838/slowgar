@@ -3,6 +3,78 @@
   background: #f5f5f5;
 }
 
+.user-info-section {
+  background: #fff;
+  padding: 20rpx;
+}
+
+.avatar-name {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  margin-right: 20rpx;
+  background-color: #f5f5f5;
+}
+
+.nickname {
+  flex: 1;
+  font-size: 32rpx;
+  color: #333;
+}
+
+.arrow {
+  color: #999;
+  margin-left: 10rpx;
+}
+
+.data-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.data-item {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.data-value {
+  font-size: 36rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.data-label {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.logout-container {
+  margin-top: 20rpx;
+  background: #fff;
+  padding: 0 20rpx;
+}
+
+.logout-item {
+  display: flex;
+  justify-content: center;
+  padding: 30rpx 0;
+}
+
+.logout {
+  color: #ff4d4f;
+  font-size: 28rpx;
+}
+
 .login-tip {
   display: flex;
   flex-direction: column;
@@ -25,27 +97,6 @@
   padding: 20rpx;
 }
 
-.user-info {
-  background: #fff;
-  padding: 40rpx;
-  border-radius: 16rpx;
-  display: flex;
-  align-items: center;
-  margin-bottom: 20rpx;
-}
-
-.avatar {
-  width: 120rpx;
-  height: 120rpx;
-  border-radius: 60rpx;
-  margin-right: 20rpx;
-}
-
-.nickname {
-  font-size: 32rpx;
-  color: #333;
-}
-
 .menu-list {
   background: #fff;
   border-radius: 16rpx;
@@ -63,12 +114,4 @@
 
 .menu-item:last-child {
   border-bottom: none;
-}
-
-.arrow {
-  color: #999;
-}
-
-.logout {
-  color: #ff4d4f;
 } 

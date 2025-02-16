@@ -8,6 +8,30 @@
   background: #fff;
 }
 
+.auth-content {
+  padding: 40rpx;
+  text-align: center;
+}
+
+.auth-title {
+  font-size: 36rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.auth-desc {
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 60rpx;
+}
+
+.auth-btn {
+  width: 400rpx !important;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 40rpx;
+}
+
 .content {
   display: flex;
   flex-direction: column;
